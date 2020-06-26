@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+      "type": "node",
+      "request": "launch",
+      "name": "app",
+      "program": "${workspaceFolder}/vue.config.js"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "base",
+      "program": "${workspaceFolder}/src/base/dll.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "server",
+      "program": "${workspaceFolder}/server/bin/www.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "read",
+      "program": "${workspaceFolder}/server/routes/download/readfile.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "tsc",
+      "name": "Run Mocha",
+      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+      "args": ["${workspaceRoot}/test/**/*.js"],
+      "cwd": "${workspaceRoot}",
+      "outFiles": []
+    }
+  ]
+}
