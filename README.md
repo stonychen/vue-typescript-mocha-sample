@@ -24,3 +24,9 @@ npm run lint
 ```
 npm run test
 ```
+
+
+### e22 Test
+```
+npm run test:e2e
+```
