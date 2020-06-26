@@ -2,16 +2,12 @@
 node_modules
 
 **/dist
-!/src/vendor/dist
-
-/server/public
+/tests/e2e/reports/**/*.*
 # local env files
 .env.local
 .env.*.local
 # Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log
 package-lock.json
 
 # Editor directories and files

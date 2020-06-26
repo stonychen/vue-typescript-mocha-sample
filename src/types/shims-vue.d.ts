@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import {
   AxiosInstance as AxiosInstanceAlias,
@@ -35,7 +36,6 @@ declare global {
   type VNode = Vue.VNode
   type VNodeData = VNodeDataAlias
 
-  // eslint-disable-next-line no-undef
   type Component = ComponentOptions | typeof Vue | AsyncComponent
 
   type CreateElement = Vue.CreateElement
