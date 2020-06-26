@@ -1,14 +1,17 @@
 module.exports = {
   root: true,
+
   env: {
     browser: true,
     node: true,
   },
+
   globals: {
     vm: true,
     res: true,
     context: true,
   },
+
   extends: [
     'plugin:vue/essential',
     'eslint:recommended',
@@ -25,6 +28,7 @@ module.exports = {
       jsx: true,
     },
   },
+
   rules: {
 
     'no-console': 0,
@@ -39,6 +43,7 @@ module.exports = {
     'class-methods-use-this': 2,
     'no-duplicate-imports': "error"
   },
+
   overrides: [
     {
       files: ['src/**/*.ts?(x)', 'test/**/*.ts?(x)'],
@@ -352,4 +357,10 @@ module.exports = {
       }
     }
   ],
+
+  'extends': [
+    'plugin:vue/essential',
+    'eslint:recommended',
+    '@vue/typescript'
+  ]
 }
