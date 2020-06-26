@@ -6,25 +6,6 @@
       "name": "app",
       "program": "${workspaceFolder}/vue.config.js"
     },
-
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "base",
-      "program": "${workspaceFolder}/src/base/dll.js"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "server",
-      "program": "${workspaceFolder}/server/bin/www.js"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "read",
-      "program": "${workspaceFolder}/server/routes/download/readfile.js"
-    },
     {
       "type": "node",
       "request": "launch",
