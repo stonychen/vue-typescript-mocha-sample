@@ -1,12 +1,12 @@
 {
-  "name": "hello-world",
+  "name": "vue-typescript-mochapack-sample",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "mochapack --webpack-config webpack.config-test.js --require test/setup.js test/unit/**/*.spec.js"
+    "test": "NODE_ENV=production mochapack --webpack-config webpack.config-test.js --require test/setup.js test/unit/**/*.spec.js"
   },
   "dependencies": {
     "D": "^1.0.0",
@@ -29,24 +29,5 @@
     "mochapack": "^2.0.2",
     "vue-template-compiler": "^2.6.11",
     "webpack-node-externals": "^1.7.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }

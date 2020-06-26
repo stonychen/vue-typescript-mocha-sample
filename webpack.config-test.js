@@ -1,7 +1,9 @@
 const nodeExternals = require('webpack-node-externals')
 
+console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   devtool: 'inline-cheap-module-source-map',
   externals: [nodeExternals()],
   output: {
