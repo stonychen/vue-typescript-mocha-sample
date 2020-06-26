@@ -5,5 +5,5 @@ public/
 # src/**/*.d.tsx
 # src/**/*.ts
 # src/**/*.tsx
-# spec/**/*.d.ts
-# spec/**/*.ts
+# tests/**/*.d.ts
+# tests/**/*.ts
