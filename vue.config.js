@@ -1,8 +1,8 @@
 const webpack = require('webpack')
 const resolveApp = require('./resolve-app')
 const path = require('path')
-const dev = process.env.NODE_ENV === 'development';
-const prod = process.env.NODE_ENV === 'production';
+const dev = process.env.NODE_ENV === 'development'
+const prod = process.env.NODE_ENV === 'production'
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 
@@ -30,5 +30,5 @@ module.exports = {
     config.optimization.splitChunks({}).end()
     config.optimization.minimize(true)
   },
-};
+}
 
