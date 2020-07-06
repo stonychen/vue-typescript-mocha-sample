@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import expect from 'expect';
+import expect from 'expect'
 import Counter from '../../src/app/counter/index.tsx'
 
 describe('test', () => {

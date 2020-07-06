@@ -27,6 +27,7 @@
     "@vue/cli-service": "~4.4.0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
+    "async-validator": "^3.3.0",
     "babel-eslint": "^10.1.0",
     "chromedriver": "83",
     "eslint": "^6.7.2",
@@ -36,7 +37,10 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^8.0.1",
     "mochapack": "^2.0.2",
+    "sass": "^1.26.9",
+    "sass-loader": "^9.0.1",
     "typescript": "~3.9.3",
+    "vue-router": "^3.3.4",
     "vue-template-compiler": "^2.6.11",
     "webpack-node-externals": "^1.7.2"
   }
