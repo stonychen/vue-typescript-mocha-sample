@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -35,7 +36,10 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@': path.resolve(fs.realpathSync(process.cwd()), 'src')
+    }
   },
   output: {
     filename: '[name].[hash:7].js',
