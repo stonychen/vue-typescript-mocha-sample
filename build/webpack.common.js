@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 
-console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+console.log(`Project is running in ${process.env.NODE_ENV} mode.`)
 
 const cssLoader = {
   loader: "css-loader",

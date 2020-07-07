@@ -8,6 +8,7 @@ module.exports = merge(common, {
     contentBase: './dist',
     hot: true
   },
+  stats: "minimal",
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()

@@ -4,16 +4,16 @@
   "private": true,
   "repository": "https://github.com/stonychen/vue-typescript-mocha-sample.git",
   "scripts": {
+    "serve": "NODE_ENV=development webpack-dev-server --open --config ./build/webpack.dev.js",
+    "build": "NODE_ENV=production webpack --config ./build/webpack.prod.js",
+    "analyse": "NODE_ENV=production webpack --config ./build/webpack.report.js",
+    "lint": "./node_modules/.bin/eslint --ext .js,.ts,.tsx src tests",
     "server": "NODE_ENV=development node server/index.js",
-    "p-serve": "NODE_ENV=development webpack-dev-server --open --config ./build/webpack.dev.js",
-    "p-build": "NODE_ENV=production webpack --config ./build/webpack.prod.js",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build_r": "vue-cli-service build --report",
-    "lint": "vue-cli-service lint",
     "test": "NODE_ENV=production mochapack --webpack-config ./build/webpack.test.js --require tests/setup.js tests/unit/**/*.spec.js",
     "test:e2e": "vue-cli-service test:e2e",
-    "bl": "browserslist"
+    "bl": "browserslist",
+    "v-serve": "vue-cli-service serve",
+    "v-build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -55,6 +55,7 @@
     "vue-router": "^3.3.4",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "^2.2.0",
