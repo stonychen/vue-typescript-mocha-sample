@@ -2,7 +2,7 @@
   "name": "vue-typescript-mochapack-sample",
   "version": "0.0.1",
   "private": true,
-  "repository": "https://github.com/stonychen/anno.js.git",
+  "repository": "https://github.com/stonychen/vue-typescript-mocha-sample.git",
   "scripts": {
     "server": "NODE_ENV=development node server/index.js",
     "p-serve": "NODE_ENV=development webpack-dev-server --open --config ./build/webpack.dev.js",
