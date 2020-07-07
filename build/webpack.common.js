@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
-const webpack = require('webpack')
+const isDev = process.env.NODE_ENV === 'development'
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 
@@ -11,18 +11,18 @@ const cssLoader = {
   options: {
     modules: {
       auto: true,
-      localIdentName: '[path][name]-[local]-[hash:base64:5]',
+      localIdentName: isDev ? '[path][name]-[local]-[hash:base64:5]' : '[hash:base64:5]',
     },
   }
 }
 
+const cssLoaders = isDev ? ["style-loader", cssLoader] : [cssLoader]
 
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     app: './src/main.ts'
   },
-  devtool: 'inline-source-map',
   plugins: [
     new ManifestPlugin(),
     new CleanWebpackPlugin({}),
@@ -33,8 +33,6 @@ module.exports = {
         BASE_URL: '/'
       }
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
@@ -45,13 +43,12 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    hot: true
   },
   module: {
     rules: [
-      { test: /\.scss$/, use: ["style-loader", cssLoader, "sass-loader"] },
-      { test: /\.less$/, use: ["style-loader", cssLoader, "less-loader"] },
-      { test: /\.css$/, use: [cssLoader] },
+      { test: /\.scss$/, use: [...cssLoaders, "sass-loader"] },
+      { test: /\.less$/, use: [...cssLoaders, "less-loader"] },
+      { test: /\.css$/, use: cssLoaders },
       {
         test: /\.ts(x)?$/,
         use: [
@@ -62,9 +59,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif|ico)$/,
-        use: [
-          'file-loader'
-        ]
+        use: ['file-loader']
       }
     ]
   }
