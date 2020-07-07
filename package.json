@@ -9,7 +9,7 @@
     "analyse": "NODE_ENV=production webpack --config ./build/webpack.report.js",
     "lint": "./node_modules/.bin/eslint --ext .js,.ts,.tsx src tests",
     "server": "NODE_ENV=development node server/index.js",
-    "test": "NODE_ENV=production mochapack --webpack-config ./build/webpack.test.js --require tests/setup.js tests/unit/**/*.spec.js",
+    "test": "NODE_ENV=production mochapack --webpack-config ./build/webpack.test.js --require tests/setup.ts tests/unit/**/*.spec.ts",
     "test:e2e": "vue-cli-service test:e2e",
     "bl": "browserslist",
     "v-serve": "vue-cli-service serve",
@@ -22,6 +22,7 @@
     "vue-property-decorator": "^9.0.0"
   },
   "devDependencies": {
+    "@types/mocha": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.4.0",

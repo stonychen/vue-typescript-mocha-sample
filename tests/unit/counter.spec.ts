@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import expect from 'expect'
-import Counter from '../../src/app/counter/index.tsx'
+import Counter from '../../src/app/counter/index'
 
 describe('test', () => {
   it('1 should be equal 1', async () => {
