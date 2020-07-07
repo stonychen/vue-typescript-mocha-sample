@@ -1,4 +1,3 @@
-//const nodeExternals = require('webpack-node-externals')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -12,7 +11,7 @@ const cssLoader = {
   options: {
     modules: {
       auto: true,
-      localIdentName: '[path][name]-[hash:base64:5]',
+      localIdentName: '[path][name]-[local]-[hash:base64:5]',
     },
   }
 }
@@ -23,19 +22,16 @@ module.exports = {
   entry: {
     app: './src/main.ts'
   },
-  //externals: [nodeExternals()],
   devtool: 'inline-source-map',
   plugins: [
     new ManifestPlugin(),
     new CleanWebpackPlugin({}),
     new HtmlWebpackPlugin({
       title: 'Anno.js',
-      // BASE_URL: 'public',
       template: 'public/index.html',
       templateParameters: {
-        BASE_URL: 'http://localhost:3000'
+        BASE_URL: '/'
       }
-      // inject: true
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
@@ -46,7 +42,6 @@ module.exports = {
   output: {
     filename: '[name].[hash:7].js',
     path: path.resolve(process.cwd(), 'dist'),
-    //publicPath: './public',
   },
   devServer: {
     contentBase: './dist',
@@ -66,7 +61,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|ico)$/,
         use: [
           'file-loader'
         ]
