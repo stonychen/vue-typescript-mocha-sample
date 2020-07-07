@@ -1,5 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator'
-import style from './index.module.scss'
+import style from './index.module.less'
+import './index.less'
 
 @Component
 export default class Counter extends Vue {

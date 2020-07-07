@@ -7,6 +7,17 @@ const webpack = require('webpack')
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 
+const cssLoader = {
+  loader: "css-loader",
+  options: {
+    modules: {
+      auto: true,
+      localIdentName: '[path][name]-[hash:base64:5]',
+    },
+  }
+}
+
+
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
@@ -43,32 +54,11 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.scss$/, use: ["style-loader", cssLoader, "sass-loader"] },
+      { test: /\.less$/, use: ["style-loader", cssLoader, "less-loader"] },
+      { test: /\.css$/, use: [cssLoader] },
       {
-        test: /\.scss$/, use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader",
-          options: {
-            modules: true
-          }
-        }, {
-          loader: "sass-loader"
-        }]
-      },
-      { test: /\.less$/, use: ['css-loader', 'less-loader'] },
-      {
-        test: /\.css$/, use: ['css-loader']
-      },
-      {
-        test: /\.ts$/,
-        use: [
-          { loader: require.resolve('cache-loader') },
-          { loader: require.resolve('babel-loader') },
-          { loader: require.resolve('ts-loader') }
-        ]
-      },
-      {
-        test: /\.tsx$/,
+        test: /\.ts(x)?$/,
         use: [
           { loader: require.resolve('cache-loader') },
           { loader: require.resolve('babel-loader') },
