@@ -5,10 +5,8 @@ const nodeExternals = require('webpack-node-externals')
 const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
+  mode: 'development',
   devtool: 'inline-cheap-module-source-map',
-  // node: {
-  //   fs: 'empty'
-  // },
   stats: "errors-only",
   externals: [nodeExternals()],
   output: {
