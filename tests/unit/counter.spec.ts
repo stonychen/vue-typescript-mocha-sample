@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import expect from 'expect'
-import Counter from '@/app/counter/index'
+import Counter from '@/app/counter'
 
 describe('test', () => {
   it('1 should be equal 1', async () => {
     expect('1').toEqual('1')
   })
-
 })
 
 describe('counter.tsx', () => {

@@ -1,6 +1,8 @@
-const resolveApp = require('./resolve-app')
+const fs = require('fs')
+const path = require('path')
+const appDirectory = fs.realpathSync(process.cwd())
 
-console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+const resolve = relativePath => path.resolve(appDirectory, relativePath)
 
 module.exports = {
   publicPath: '',
@@ -12,7 +14,7 @@ module.exports = {
   productionSourceMap: false,
   chainWebpack: config => {
     config.resolve.alias
-      .set('@', resolveApp('src'))
+      .set('@', resolve('src'))
       .end()
 
     config.module

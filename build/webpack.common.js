@@ -3,7 +3,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+
 const isDev = process.env.NODE_ENV === 'development'
+const appDirectory = fs.realpathSync(process.cwd())
+const resolve = relativePath => path.resolve(appDirectory, relativePath)
 
 console.log(`Project is running in ${process.env.NODE_ENV} mode.`)
 
@@ -38,7 +41,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      '@': path.resolve(fs.realpathSync(process.cwd()), 'src')
+      '@': resolve('src')
     }
   },
   output: {
