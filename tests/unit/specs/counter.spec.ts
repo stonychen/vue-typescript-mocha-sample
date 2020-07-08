@@ -7,6 +7,8 @@ describe('test', () => {
   it('1 should be equal 1', async () => {
     expect('1').toEqual('1')
   })
+
+  it('pending a spec')
 })
 
 describe('counter.tsx', () => {

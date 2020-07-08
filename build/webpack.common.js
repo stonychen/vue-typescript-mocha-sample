@@ -5,10 +5,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
-const appDirectory = fs.realpathSync(process.cwd())
-const resolve = relativePath => path.resolve(appDirectory, relativePath)
+const isTest = process.env.NODE_ENV === 'test'
+const mode = process.env.NODE_ENV === 'test' ? 'development' : process.env.NODE_ENV
 
-console.log(`Project is running in ${process.env.NODE_ENV} mode.`)
+
+const appDirectory = fs.realpathSync(process.cwd())
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
 
 const cssLoader = {
   loader: "css-loader",
@@ -21,27 +23,25 @@ const cssLoader = {
 }
 
 const cssLoaders = isDev ? ["style-loader", cssLoader] : [cssLoader]
+const plugins = isTest ? [] : [new ManifestPlugin(), new HtmlWebpackPlugin({
+  title: 'Anno.js',
+  template: 'public/index.html',
+  templateParameters: {
+    BASE_URL: '/'
+  }
+})]
 
 module.exports = {
-  mode: process.env.NODE_ENV,
-  entry: {
-    app: './src/main.ts'
-  },
+  mode: mode,
+  entry: './src/main.ts',
   plugins: [
-    new ManifestPlugin(),
     new CleanWebpackPlugin({}),
-    new HtmlWebpackPlugin({
-      title: 'Anno.js',
-      template: 'public/index.html',
-      templateParameters: {
-        BASE_URL: '/'
-      }
-    }),
+    ...plugins,
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      '@': resolve('src')
+      '@': resolveApp('src')
     }
   },
   output: {
