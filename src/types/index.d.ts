@@ -4,7 +4,9 @@ import { RuleItem as AsyncValidatorRuleItem } from 'async-validator'
 declare global {
   interface Window {
     vm: Vue
+    h: Vue.CreateElement
   }
+
   type RuleItem = AsyncValidatorRuleItem
 
   type RouteMapType = {
