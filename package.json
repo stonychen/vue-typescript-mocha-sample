@@ -12,9 +12,9 @@
     "server": "NODE_ENV=development node server/index.js",
     "test": "vue-typescript-mochapack-sample --webpack-config ./build/webpack.test.js --require tests/unit/setup.ts tests/unit/**/*.spec.ts",
     "test:e2e": "vue-cli-service test:e2e",
-    "bl": "browserslist",
     "v-serve": "vue-cli-service serve",
-    "v-build": "vue-cli-service build"
+    "v-build": "vue-cli-service build",
+    "bl": "browserslist"
   },
   "dependencies": {
     "core-js": "^3.6.5",

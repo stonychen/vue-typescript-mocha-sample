@@ -26,7 +26,7 @@ npm run test
 ```
 
 
-### e22 Test
+### e2e Test
 ```
 npm run test:e2e
 ```
